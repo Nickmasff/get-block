@@ -1,0 +1,52 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/most-changed-balance": {
+            "get": {
+                "description": "Get address whose balance has changed (in any direction) more than the rest in the last hundred blocks",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Returns address",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/balance.MostChangedBalanceDto"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error message",
+                        "schema": {
+                            "$ref": "#/definitions/gb_swagger.JSONResultError"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "balance.MostChangedBalanceDto": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                }
+            }
+        },
+        "gb_swagger.JSONResultError": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

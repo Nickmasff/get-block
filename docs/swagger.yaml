@@ -1,0 +1,33 @@
+definitions:
+  balance.MostChangedBalanceDto:
+    properties:
+      address:
+        type: string
+    type: object
+  gb_swagger.JSONResultError:
+    properties:
+      error:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /most-changed-balance:
+    get:
+      description: Get address whose balance has changed (in any direction) more than
+        the rest in the last hundred blocks
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/balance.MostChangedBalanceDto'
+            type: array
+        "500":
+          description: Server error message
+          schema:
+            $ref: '#/definitions/gb_swagger.JSONResultError'
+      summary: Returns address
+swagger: "2.0"

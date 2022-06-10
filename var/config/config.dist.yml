@@ -1,0 +1,3 @@
+getblock:
+  base_url: "https://eth.getblock.io/mainnet/"
+  key: "API Key"
